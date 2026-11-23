@@ -60,6 +60,9 @@ nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 78%,
 .win .kpi b{display:block;font-size:15px;color:#0f6b6b}
 .win .kpi span{opacity:.65}
 .win .bars{display:flex;align-items:flex-end;gap:6px;height:64px;margin-top:10px;background:#fff;border-radius:9px;padding:8px}
+.a-arca .mos{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.a-arca .mos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;display:block}
+.a-arca .drow{display:flex;align-items:center;gap:9px;background:#fff;border-radius:9px;padding:6px;margin-bottom:6px;font-weight:600}.a-arca .drow img{width:34px;height:42px;object-fit:cover;border-radius:4px}
+.cv iframe{width:100%;height:100%;border:0;display:block;background:#fff}.cv.noint iframe{pointer-events:none}
 .win .bars i{flex:1;background:#0f6b6b;border-radius:3px 3px 0 0}
 
 /* DETAIL */
@@ -70,6 +73,8 @@ nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 78%,
 .cta{display:flex;gap:14px;justify-content:center;align-items:center;margin:28px 0 48px;flex-wrap:wrap}
 .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:12px 26px;border-radius:99px;font-size:17px;font-weight:500}
 .btn:hover{filter:brightness(1.08)}
+.btn.off{background:rgba(128,128,128,.22);color:var(--muted);cursor:default;pointer-events:none;filter:none}
+.dl.off{color:var(--muted);font-weight:500;white-space:nowrap}
 .link{color:var(--accent);font-size:17px}
 .demo-cap{margin-top:16px;font-size:14px;color:var(--muted)}
 .sec{padding:96px 0}
@@ -221,7 +226,7 @@ footer{padding:36px 0 56px;text-align:center;color:var(--muted);font-size:13px;b
 .h-text{padding-top:5vh;will-change:transform,opacity}
 .h-text .eyebrow{color:var(--accent);font-weight:600;font-size:19px}
 .h-text h1{font-size:clamp(60px,14vw,140px);letter-spacing:-.045em;line-height:1;font-weight:700;padding-bottom:.06em;
-  background:linear-gradient(120deg,var(--accent),#2fa89a 60%,#7fd1c4);-webkit-background-clip:text;background-clip:text;color:transparent}
+  background:linear-gradient(120deg,var(--accent),var(--g2,#2fa89a) 60%,var(--g3,#7fd1c4));-webkit-background-clip:text;background-clip:text;color:transparent}
 .h-text .tag{font-size:clamp(19px,3.2vw,28px);color:var(--muted);max-width:680px;margin:10px auto 0}
 .h-text .cta{margin:22px 0 0}
 .h-stage{perspective:1500px;width:100%;display:flex;justify-content:center;margin-top:3vh}
@@ -332,6 +337,109 @@ const PROJECTS = [
         "Importazione dei movimenti da Excel, con anteprima prima di salvare"
       ]}
     ]
+  },
+  {
+    id: "arca-foto",
+    kind: "arca", frame: "demo/arca-foto.html", art: "foto",
+    nome: "Arca Foto",
+    categoria: "Foto e video",
+    slogan: "Le tue foto e i tuoi video, in ordine. Da sole.",
+    breve: "Il programma per Windows che mette in ordine foto e video, li capisce con un'intelligenza artificiale che resta sul tuo PC e te li fa ritrovare con due parole.",
+    color: "#1565D8", colorDark: "#5AA2FF", letter: "F",
+    provaLead: "Sfoglia la libreria, cerca «tramonto sardegna», apri un album, dai un nome a una persona. Le foto sono inventate e non viene salvato niente.",
+    chaps: [
+      {e:"Per te",h:"Il tuo archivio ti racconta qualcosa.",p:"I ricordi di questi giorni negli anni passati, i viaggi che non hanno ancora un album, quello che c'è da rivedere. Ogni volta che apri Arca trovi qualcosa da guardare."},
+      {e:"Aggiungi",h:"Trascina, e Arca fa il resto.",p:"Premi Aggiungi, trascina le foto nella finestra o mettile nella cartella «Da sistemare». Arca le guarda, dà un titolo e una descrizione e le sposta da sola nelle cartelle giuste. I file vengono spostati, non copiati."},
+      {e:"Cerca e condividi",h:"Cerca come parli.",p:"«Foto al mare col cane», «tramonto in Sardegna». Poi seleziona quelle che vuoi e crea una copia leggera per WhatsApp o email, anche in ZIP e senza la posizione GPS."},
+      {e:"Album",h:"Album dentro gli album.",p:"Crea album e sotto-album, per esempio 2025 › Sardegna. Ci sono anche gli album intelligenti: Preferiti, Video, Senza album, RAW, Screenshot."},
+      {e:"Persone",h:"Un nome, una volta sola.",p:"Arca raggruppa le foto della stessa persona. Tu le dai un nome una volta e da quel momento la ritrovi in tutta la libreria."},
+      {e:"Luoghi",h:"Le foto sulla mappa.",p:"Le foto con la posizione compaiono sulla mappa e si trovano anche cercando il luogo. I nomi dei luoghi funzionano senza internet: solo lo sfondo della mappa ne ha bisogno."},
+      {e:"Pulizia",h:"Arca segnala, tu decidi.",p:"Raffiche di scatti quasi uguali, foto sfocate o troppo scure, copie identiche. Arca te le mostra e non elimina niente senza la tua conferma. Il Riepilogo ti dice a che punto è l'archivio."},
+      {e:"Impostazioni",h:"Il tuo archivio, le tue regole.",tall:true,p:"Scegli dove tenere le foto (anche disco esterno o NAS) e come creare le cartelle: per album oppure per anno e mese. Attiva la copia di sicurezza automatica su un altro disco. L'intelligenza artificiale gira sul tuo PC: niente va su internet."}
+    ],
+    scuro: "Meno tempo a ordinare.<br><span>Più tempo a guardare.</span>",
+    install: [
+      ["Scarica","Quando sarà disponibile, premi Scarica ed estrai la cartella dove vuoi tenerla, per esempio in Documenti. Poi non spostarla."],
+      ["Lancia Installa","Doppio clic su <b>Installa.bat</b>. Serve internet: scarica Python, Ollama e i modelli AI (circa 4 GB). Se Windows mostra «Windows ha protetto il PC», clicca <b>Ulteriori informazioni</b> e poi <b>Esegui comunque</b>."],
+      ["Usa Arca Foto","Alla fine trovi l'icona sul Desktop. Al primo avvio scegli due cartelle: l'archivio e «Da sistemare». Non serve nessun account."]
+    ],
+    reqs: "Requisiti: Windows 10 o 11 con almeno 8 GB di RAM (16 consigliati). Internet serve solo per l'installazione.",
+    faq: [
+      ["Le mie foto vanno su internet?","No. L'intelligenza artificiale gira sul tuo computer: niente viene inviato fuori. Internet serve solo per installare il programma e per lo sfondo della mappa."],
+      ["Le foto vengono spostate o copiate?","<b>Spostate.</b> Quando le aggiungi, Arca le sposta nella cartella archivio, in cartelle create da sola. Se sbagli, c'è sempre Annulla (anche Ctrl+Z) dopo ogni spostamento."],
+      ["Posso tenere le mie cartelle di album?","Sì. Al primo avvio scegli la cartella che le contiene: le cartelle diventano album con lo stesso nome e i file restano dove sono."],
+      ["Quanto ci mette con tante foto?","Dipende dal computer: circa 10–60 secondi a foto, molto meno con una scheda NVIDIA. Per migliaia di foto lascia lavorare Arca anche di notte; puoi metterla in pausa quando vuoi."],
+      ["Legge anche i file RAW?","Sì: CR2, CR3, NEF, ARW, DNG, RAF, ORF e altri. Se scatti RAW+JPEG, Arca mostra una foto sola e tiene insieme i due file."],
+      ["Posso usarla insieme ad Arca Documenti?","Sì, sono due programmi separati con archivi separati. Se hai documenti dentro l'archivio delle foto, Arca Documenti li porta nella sua cartella con un clic."],
+      ["Come si aggiorna?","Scarichi la nuova versione da questa pagina, estrai la cartella sopra quella vecchia e rilanci Installa.bat: è rapido. Archivio, album, persone e impostazioni restano come sono."],
+      ["Se la disinstallo perdo le foto?","No. Cancelli la cartella del programma e i collegamenti: l'archivio resta dov'è, intatto."],
+      ["Perché Windows mostra un avviso?","Perché è un programma piccolo e indipendente e non ha ancora la firma digitale, che ha un costo annuale. Succede con molti programmi gratuiti."]
+    ],
+    specifiche: [
+      ["Piattaforma","Windows 10 / 11"],
+      ["Dati","Sul tuo PC, anche su disco esterno o NAS"],
+      ["Intelligenza artificiale","Locale, senza internet"],
+      ["Prezzo","Gratuito"],
+      ["Ultima versione","0.1"]
+    ],
+    versioni: [
+      {v:"0.1", tag:"arca-foto-v0.1", data:"Novembre 2026", file:"Arca_Foto_0.1.zip", sha256:"", note:[
+        "I documenti hanno un programma tutto loro: Arca Documenti",
+        "Per te, Persone, Luoghi, Album anche annidati e Pulizia",
+        "Esporta per WhatsApp o email, copia di sicurezza automatica"
+      ]}
+    ]
+  },
+  {
+    id: "arca-documenti",
+    kind: "arca", frame: "demo/arca-documenti.html", art: "documenti",
+    nome: "Arca Documenti",
+    categoria: "Documenti",
+    slogan: "Bollette, contratti, garanzie. Le trovi in un attimo.",
+    breve: "Il programma per Windows che legge i tuoi documenti, li mette nelle tue cartelle e risponde alle domande, tutto sul tuo PC.",
+    color: "#D9650B", colorDark: "#FF9A4D", letter: "D",
+    provaLead: "Chiedi «quanto ho speso di luce nel 2025?», apri le cartelle, archivia un documento con un clic. I documenti sono inventati e non viene salvato niente.",
+    chaps: [
+      {e:"Per te",h:"Arca nota quello che conta.",p:"Documenti da archiviare, scadenze in arrivo, cose da rivedere. Appena apri il programma sai già cosa c'è da fare."},
+      {e:"Chiedi ad Arca",h:"Fai una domanda, ricevi la risposta.",p:"«Quanto ho speso di luce nel 2025?», «il contratto d'affitto», «garanzia lavatrice». Arca fa i conti sui tuoi documenti, sul tuo PC, e ti mostra anche da dove vengono i numeri."},
+      {e:"Cartelle",h:"Le tue cartelle, come le hai fatte tu.",p:"Crea, rinomina, sposta e annida le cartelle; trascina i documenti dove vuoi. Quello che fai nel programma si vede anche in Esplora file, e viceversa. Le cartelle che hai già non vengono toccate."},
+      {e:"Da archiviare",h:"Un clic e il documento va a posto.",p:"I documenti nuovi aspettano qui. Arca ti suggerisce la cartella giusta e confermi con un clic, oppure scegli tu. Puoi anche accettarli tutti insieme."},
+      {e:"Scadenze",h:"Non ti scappa più niente.",p:"Arca legge importi e date di scadenza dai documenti, li raccoglie in Scadenze e te li ricorda in Per te."},
+      {e:"Riepilogo",h:"L'archivio, in numeri.",p:"Quanti documenti hai, cosa c'è da sistemare, a che punto è la copia di sicurezza e quante copie identiche puoi eliminare. Decidi tu cosa buttare."},
+      {e:"Impostazioni",h:"I tuoi documenti restano tuoi.",tall:true,p:"Scegli la cartella dei documenti (anche disco esterno o NAS) e attiva la copia di sicurezza automatica. Arca legge anche PDF scansionati e foto di scontrini, e niente va su internet."}
+    ],
+    scuro: "Meno tempo a cercare.<br><span>Più tempo per te.</span>",
+    install: [
+      ["Scarica","Quando sarà disponibile, premi Scarica ed estrai la cartella dove vuoi tenerla, per esempio in Documenti. Poi non spostarla."],
+      ["Lancia Installa","Doppio clic su <b>Installa.bat</b>. Serve internet: scarica Python, Ollama e il modello AI (se hai già Arca Foto quasi tutto c'è già). Se Windows mostra «Windows ha protetto il PC», clicca <b>Ulteriori informazioni</b> e poi <b>Esegui comunque</b>."],
+      ["Usa Arca Documenti","Alla fine trovi l'icona sul Desktop, accanto a quella di Arca Foto. Al primo avvio scegli la cartella dei documenti e «Da sistemare». Non serve nessun account."]
+    ],
+    reqs: "Requisiti: Windows 10 o 11 con almeno 8 GB di RAM. Internet serve solo per l'installazione.",
+    faq: [
+      ["I miei documenti vanno su internet?","No. L'intelligenza artificiale gira sul tuo computer e niente viene inviato fuori. Internet serve solo per installare il programma."],
+      ["Le mie cartelle vengono riordinate?","No. Se hai già cartelle ordinate (anche dentro altre cartelle, per esempio Casa › Bollette › 2025), scegli quella che le contiene: Arca le legge e le lascia esattamente dove sono. Non sposta e non rinomina niente di quello che hai messo tu."],
+      ["Che documenti legge?","PDF, Word, Excel, scansioni e foto di scontrini. Legge il testo, riconosce importi e scadenze e li rende ricercabili."],
+      ["Cosa posso chiederle?","Domande come «quanto ho speso di luce nel 2025?», «il contratto d'affitto», «garanzia lavatrice». Arca risponde facendo i conti sui tuoi documenti."],
+      ["Cosa succede ai file che elimino?","Finiscono nel Cestino di Windows: puoi sempre recuperarli. E dopo ogni spostamento o modifica c'è Annulla (anche Ctrl+Z)."],
+      ["Posso usarla insieme ad Arca Foto?","Sì, sono due programmi separati con archivi separati. Se hai documenti dentro l'archivio delle foto, in Impostazioni c'è «Porta qui i documenti»: le foto non si toccano."],
+      ["Come si aggiorna?","Scarichi la nuova versione da questa pagina, estrai la cartella sopra quella vecchia e rilanci Installa.bat. I tuoi documenti restano dove sono."],
+      ["Se la disinstallo perdo i documenti?","No. Cancelli la cartella del programma e i collegamenti: i tuoi documenti restano dove sono, intatti."],
+      ["Perché Windows mostra un avviso?","Perché è un programma piccolo e indipendente e non ha ancora la firma digitale, che ha un costo annuale. Succede con molti programmi gratuiti."]
+    ],
+    specifiche: [
+      ["Piattaforma","Windows 10 / 11"],
+      ["Dati","Sul tuo PC, anche su disco esterno o NAS"],
+      ["Intelligenza artificiale","Locale, senza internet"],
+      ["Prezzo","Gratuito"],
+      ["Ultima versione","0.1"]
+    ],
+    versioni: [
+      {v:"0.1", tag:"arca-documenti-v0.1", data:"Novembre 2026", file:"Arca_Documenti_0.1.zip", sha256:"", note:[
+        "Programma tutto per i documenti, con archivio separato da quello delle foto",
+        "Le tue cartelle restano dove sono",
+        "Chiedi ad Arca, Scadenze, Da archiviare e copie identiche"
+      ]}
+    ]
   }
 ];
 
@@ -343,7 +451,8 @@ const PROJECTS = [
    =========================================================== */
 /* Dopo aver creato il repository su GitHub scrivi qui "tuonome/nomerepository" (per esempio "ncesko/progetti").
    Il pulsante Scarica punterà alle Releases di GitHub e comparirà il contatore dei download. */
-const SITE = {repo:""};
+const SITE = {repo:"", presto:true}; /* presto:true = pulsanti Scarica disattivati ("Disponibile a breve"). Metti false quando i programmi sono pronti. */
+const SOON='<span class="btn off" aria-disabled="true">Disponibile a breve</span>';
 const dlUrl=v=>SITE.repo?`https://github.com/${SITE.repo}/releases/download/${v.tag}/${v.file}`:`downloads/${v.file}`;
 
 const GISCUS = {repo:"", repoId:"", category:"", categoryId:""};
@@ -356,6 +465,11 @@ function mockSmall(){
     <div class="bars">${bars}</div></div></div>`;
 }
 let FILTER="";
+function artArca(p){
+  if(p.art==="foto"){const ids=[1,5,9,13,17,21,25,29,33];return `<div class="win a-arca"><div class="bar"><i></i><i></i><i></i></div><div class="body"><div class="mos">${ids.map(i=>`<img src="img-foto-mini/${i}.jpg" alt="" loading="lazy">`).join("")}</div></div></div>`;}
+  const rows=["Bolletta luce","Contratto affitto","Garanzia lavatrice"].map((t,i)=>`<div class="drow"><img src="img-doc-mini/${[1,2,3][i]}.jpg" alt="" loading="lazy"><span>${t}</span></div>`).join("");
+  return `<div class="win a-arca"><div class="bar"><i></i><i></i><i></i></div><div class="body">${rows}</div></div>`;
+}
 function renderHome(){
   const cats=[...new Set(PROJECTS.map(p=>p.categoria))];
   const f=document.getElementById("filters");
@@ -364,7 +478,7 @@ function renderHome(){
     <a class="tile" href="#${p.id}">
       <div class="top"><span class="appico" style="background:linear-gradient(135deg,${p.color},${p.colorDark})">${p.letter}</span><div><div class="eyebrow">${p.categoria}</div><h2 style="margin-top:2px">${p.nome}</h2></div></div>
       <p>${p.breve}</p>
-      <span class="more">Scopri di più ›</span><div class="art">${mockSmall()}</div></a>`).join("");
+      <span class="more">Scopri di più ›</span><div class="art">${p.kind==="arca"?artArca(p):mockSmall()}</div></a>`).join("");
 }
 
 /* ===========================================================
@@ -698,9 +812,9 @@ function MoneaApp(root,interactive){
 }
 
 /* ---------- COMMENTI ---------- */
-const CM_KEY="monea-commenti-demo";
-function cmLoad(){try{return JSON.parse(localStorage.getItem(CM_KEY)||"[]")}catch(e){return[]}}
-function cmSave(a){try{localStorage.setItem(CM_KEY,JSON.stringify(a))}catch(e){}}
+let CUR=null;const cmKey=()=>"commenti-demo-"+(CUR?CUR.id:"x");
+function cmLoad(){try{return JSON.parse(localStorage.getItem(cmKey())||"[]")}catch(e){return[]}}
+function cmSave(a){try{localStorage.setItem(cmKey(),JSON.stringify(a))}catch(e){}}
 let cmMem=null, cmStars=0;
 function cmListHTML(){
   const a=cmMem; if(!a.length)return '<div class="empty">Ancora nessun commento. Scrivi tu il primo!</div>';
@@ -712,7 +826,7 @@ function mountComments(){
     const s=document.createElement("script");
     s.src="https://giscus.app/client.js"; s.async=true; s.crossOrigin="anonymous";
     Object.entries({repo:GISCUS.repo,"repo-id":GISCUS.repoId,category:GISCUS.category,"category-id":GISCUS.categoryId,
-      mapping:"specific",term:"Monea",strict:"0","reactions-enabled":"1","emit-metadata":"0","input-position":"top",
+      mapping:"specific",term:CUR.nome,strict:"0","reactions-enabled":"1","emit-metadata":"0","input-position":"top",
       theme:"preferred_color_scheme",lang:"it",loading:"lazy"}).forEach(([k,v])=>s.setAttribute("data-"+k,v));
     box.appendChild(s); return;
   }
@@ -747,7 +861,19 @@ const CHAPS=[
   {e:"Impostazioni · Dati",h:"I tuoi dati restano tuoi.",p:"Tutto resta sul tuo computer. Backup automatici a ogni apertura e chiusura, e una copia prima di ogni operazione importante. Nessun account, nessun cloud."}
 ];
 let HERO=null,STAGE=null,DEMO=null;
+function FrameApp(root,src,interactive){
+  root.classList.toggle("noint",!interactive);
+  const f=document.createElement("iframe");f.src=src;f.title="Demo del programma";f.loading="eager";if(!interactive)f.tabIndex=-1;root.appendChild(f);
+  const o={f,ready:false,pend:null,slow:1,
+    show(){},clear(){if(o.ready)f.contentWindow.postMessage({arca:"stop"},"*");o.pend=null;},reset(){},later(){},
+    scene(i){const m={arca:"scene",i};if(o.ready){f.contentWindow.postMessage({arca:"slow",v:o.slow},"*");f.contentWindow.postMessage(m,"*");}else o.pend=m;},
+    _msg(){o.ready=true;f.contentWindow.postMessage({arca:"slow",v:o.slow},"*");if(o.pend){f.contentWindow.postMessage(o.pend,"*");o.pend=null;}}};
+  FRAMES.push(o);return o;
+}
+const FRAMES=[];
+window.addEventListener("message",e=>{if(e.data&&e.data.arca==="ready")FRAMES.forEach(o=>{if(o.f.contentWindow===e.source)o._msg();});});
 function scene(i){
+  if(CUR&&CUR.kind==="arca"){STAGE.scene(i);return;}
   const A=STAGE;A.clear();A.reset();const L=A.later;
   switch(i){
     case 0:A.show("dash");break;
@@ -774,22 +900,22 @@ function renderDetail(p){
       <div class="eyebrow">${p.categoria}</div>
       <h1>${p.nome}.</h1>
       <p class="tag">${p.slogan}</p>
-      <div class="cta"><a class="btn" href="${dlUrl(latest)}" download>Scarica ${latest.v}</a><a class="link" href="#story" data-scroll="story">Scopri di più ›</a></div>
+      <div class="cta">${SITE.presto?SOON:`<a class="btn" href="${dlUrl(latest)}" download>Scarica ${latest.v}</a>`}<a class="link" href="#story" data-scroll="story">Scopri di più ›</a></div>
     </div>
     <div class="h-stage"><div class="h-win" id="hwin"><div class="cv-wrap"><div class="cv-in"><div class="cv" id="appH"></div></div></div></div></div>
   </div></section>
 
   <section class="story" id="story"><div class="story-grid">
-    <div class="chaps">${CHAPS.map((c,i)=>`<div class="chap" data-i="${i}" ${c.tall?'style="min-height:150vh"':""}><div class="eyebrow">${c.e}</div><h2>${c.h}</h2><p>${c.p}</p></div>`).join("")}</div>
+    <div class="chaps">${(p.chaps||CHAPS).map((c,i)=>`<div class="chap" data-i="${i}" ${c.tall?'style="min-height:150vh"':""}><div class="eyebrow">${c.e}</div><h2>${c.h}</h2><p>${c.p}</p></div>`).join("")}</div>
     <div class="stagecol"><div class="stage" id="stage"><div class="cv-wrap"><div class="cv-in"><div class="cv" id="appS"></div></div></div></div></div>
   </div></section>
 
-  <section class="dark"><h2 class="rv">Meno tempo a registrare.<br><span>Più tempo a capire.</span></h2>
+  <section class="dark"><h2 class="rv">${p.scuro||"Meno tempo a registrare.<br><span>Più tempo a capire.</span>"}</h2>
     <p class="rv">${p.breve}</p></section>
 
   <section class="sec" id="prova"><div class="wrap">
     <h2 class="rv">Adesso prova tu.</h2>
-    <p class="lead rv">Cambia mese, cerca un movimento, aggiungi una categoria, crea un salvadanaio, cambia colore. I dati sono inventati.</p>
+    <p class="lead rv">${p.provaLead||"Cambia mese, cerca un movimento, aggiungi una categoria, crea un salvadanaio, cambia colore. I dati sono inventati."}</p>
     <div style="margin-top:44px" class="rv"><div class="cv-wrap" data-min=".72"><div class="cv-in"><div class="cv" id="appD"></div></div></div>
     <p class="try-note">È una demo con dati inventati: non salva niente.</p></div>
   </div></section>
@@ -797,12 +923,12 @@ function renderDetail(p){
   <section class="sec alt" id="installa"><div class="wrap">
     <h2 class="rv">Installarla è semplice.</h2>
     <p class="lead rv">Tre passi, meno di un minuto.</p>
-    <div class="steps3 rv">
-      <div><div class="n">1</div><h3>Scarica</h3><p>Premi Scarica e salva il file <b>${latest.file}</b>.</p></div>
+    <div class="steps3 rv">${p.install?p.install.map((x,k)=>`<div><div class="n">${k+1}</div><h3>${x[0]}</h3><p>${k===0&&!SITE.presto?`Premi Scarica e salva il file <b>${latest.file}</b>, poi estrai la cartella dove vuoi tenerla.`:x[1]}</p></div>`).join(""):`
+      <div><div class="n">1</div><h3>Scarica</h3><p>${SITE.presto?"Quando sarà disponibile, premi Scarica e salva il file.":`Premi Scarica e salva il file <b>${latest.file}</b>.`}</p></div>
       <div><div class="n">2</div><h3>Aprilo</h3><p>Se Windows mostra «Windows ha protetto il PC», clicca <b>Ulteriori informazioni</b> e poi <b>Esegui comunque</b>. Succede con i programmi indipendenti non ancora firmati.</p></div>
-      <div><div class="n">3</div><h3>Usa ${p.nome}</h3><p>Segui i passaggi: alla fine trovi ${p.nome} sul desktop e nel menu Start. Non serve nessun account.</p></div>
+      <div><div class="n">3</div><h3>Usa ${p.nome}</h3><p>Segui i passaggi: alla fine trovi ${p.nome} sul desktop e nel menu Start. Non serve nessun account.</p></div>`}
     </div>
-    <p class="reqs rv">Requisiti: Windows 10 o 11. Non serve internet.</p>
+    <p class="reqs rv">${p.reqs||"Requisiti: Windows 10 o 11. Non serve internet."}</p>
     ${latest.sha256?`<p class="sha rv">Codice di controllo (SHA-256): <code>${latest.sha256}</code></p>`:""}
   </div></section>
 
@@ -813,7 +939,7 @@ function renderDetail(p){
 
   <section class="sec alt"><div class="wrap">
     <h2 class="rv">In breve.</h2>
-    <div class="specs rv">${p.specifiche.concat(SITE.repo?[["Download",'<span id="dcnt">…</span>']]:[]).map(s=>`<div><span>${s[0]}</span><span>${s[1]}</span></div>`).join("")}</div>
+    <div class="specs rv">${p.specifiche.concat((SITE.repo&&!SITE.presto)?[["Download",'<span id="dcnt">…</span>']]:[]).map(s=>`<div><span>${s[0]}</span><span>${s[1]}</span></div>`).join("")}</div>
   </div></section>
 
   <section class="sec" id="versioni"><div class="wrap">
@@ -822,9 +948,9 @@ function renderDetail(p){
     <div class="ver rv">${p.versioni.map((v,i)=>`
       <div class="vv"><div><h3>${p.nome} ${v.v}${i===0?'<span class="pill">Ultima</span>':''}</h3><small>${v.data}</small>${v.sha256?`<div class="mut" style="font-size:12px;color:var(--muted);word-break:break-all;margin-top:4px">SHA-256: ${v.sha256}</div>`:""}
       <ul>${v.note.map(n=>`<li>${n}</li>`).join("")}</ul></div>
-      <a class="dl" href="${dlUrl(v)}" download>Scarica ›</a></div>`).join("")}
+      ${SITE.presto?'<span class="dl off">A breve</span>':`<a class="dl" href="${dlUrl(v)}" download>Scarica ›</a>`}</div>`).join("")}
     </div>
-    <p class="note">Il pulsante Scarica funzionerà quando il file sarà pubblicato su GitHub.</p>
+    <p class="note">${SITE.presto?"Il download sarà disponibile a breve.":"Il pulsante Scarica funzionerà quando il file sarà pubblicato su GitHub."}</p>
   </div></section>
 
   <section class="sec alt" id="commenti"><div class="wrap">
@@ -872,6 +998,7 @@ function heroScroll(){
   const t=document.getElementById("htext");t.style.opacity=1-tf;t.style.transform=`translateY(${-tf*50}px)`;
 }
 function counter(){
+  if(SITE.presto)return;
   if(!SITE.repo)return;
   fetch(`https://api.github.com/repos/${SITE.repo}/releases`).then(r=>r.json()).then(rs=>{
     const n=rs.reduce((a,r)=>a+r.assets.reduce((b,x)=>b+(x.download_count||0),0),0),el=document.getElementById("dcnt");
@@ -892,11 +1019,18 @@ function route(){
   if(p){
     document.documentElement.style.setProperty('--pa-l',p.color);document.documentElement.style.setProperty('--pa-d',p.colorDark);det.innerHTML=renderDetail(p);home.classList.add("hidden");det.classList.remove("hidden");back.classList.remove("hidden");
     document.title=p.nome+" — ncesko";window.scrollTo(0,0);
+    CUR=p;FRAMES.length=0;const R=document.documentElement.style;if(p.kind==="arca"){R.setProperty("--g2","color-mix(in srgb,var(--accent) 72%,white)");R.setProperty("--g3","color-mix(in srgb,var(--accent) 45%,white)");}else{R.removeProperty("--g2");R.removeProperty("--g3");}
+    if(p.kind==="arca"){
+      HERO=FrameApp(document.getElementById("appH"),p.frame,false);
+      STAGE=FrameApp(document.getElementById("appS"),p.frame,false);STAGE.slow=1.35;
+      DEMO=FrameApp(document.getElementById("appD"),p.frame,true);
+    }else{
     HERO=MoneaApp(document.getElementById("appH"),false);HERO.show("dash");
     STAGE=MoneaApp(document.getElementById("appS"),false);STAGE.slow=1.7;STAGE.show("dash");
-    DEMO=MoneaApp(document.getElementById("appD"),true);DEMO.show("dash");
+    DEMO=MoneaApp(document.getElementById("appD"),true);DEMO.show("dash");}
     mountComments();fit();setupStory();reveal();heroScroll();counter();
   }else{
+    CUR=null;document.documentElement.style.removeProperty("--g2");document.documentElement.style.removeProperty("--g3");
     document.documentElement.style.removeProperty("--pa-l");document.documentElement.style.removeProperty("--pa-d");
     det.classList.add("hidden");home.classList.remove("hidden");back.classList.add("hidden");
     document.title="ncesko — Progetti";
